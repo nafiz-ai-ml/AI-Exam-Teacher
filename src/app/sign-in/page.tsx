@@ -3,7 +3,7 @@
 import React, { useState, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { GraduationCap, ArrowRight, Lock, Mail } from 'lucide-react';
+import { GraduationCap, ArrowRight, ArrowLeft, Lock, Mail } from 'lucide-react';
 import { Alert } from '@/components/ui/Alert';
 
 function SignInForm() {
@@ -49,15 +49,26 @@ function SignInForm() {
   };
 
   return (
-    <div className="w-full max-w-md space-y-8">
+    <div className="w-full max-w-md space-y-6">
+      {/* Back to Home Link */}
+      <div className="flex items-center justify-between">
+        <Link
+          href="/"
+          className="inline-flex items-center text-xs font-semibold text-slate-600 hover:text-emerald-700 transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4 mr-1.5" />
+          <span>হোম পেজে ফিরে যান</span>
+        </Link>
+      </div>
+
       {/* Brand & Heading */}
       <div className="text-center space-y-2">
-        <Link href="/" className="inline-flex items-center space-x-2 group mb-2">
-          <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-emerald-700 to-teal-500 flex items-center justify-center text-white shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform duration-200">
-            <GraduationCap className="w-6 h-6" />
+        <Link href="/" className="inline-flex items-center space-x-2 group mb-1">
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-emerald-700 to-teal-500 flex items-center justify-center text-white shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform duration-200">
+            <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6" />
           </div>
           <div className="text-left">
-            <span className="font-bold text-xl text-slate-900 tracking-tight block">
+            <span className="font-bold text-lg sm:text-xl text-slate-900 tracking-tight block">
               শিক্ষক সহায়ক
             </span>
             <span className="text-[11px] font-medium text-emerald-700 -mt-1 block">
@@ -69,13 +80,13 @@ function SignInForm() {
         <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
           আবার স্বাগতম
         </h1>
-        <p className="text-sm text-slate-700 max-w-sm mx-auto">
+        <p className="text-xs sm:text-sm text-slate-700 max-w-sm mx-auto">
           আপনার শিক্ষক অ্যাকাউন্টে সাইন ইন করে সংরক্ষিত খাতা ও মূল্যায়ন দেখুন।
         </p>
       </div>
 
       {/* Card */}
-      <div className="bg-white rounded-2xl border border-slate-200 p-8 shadow-xs space-y-6">
+      <div className="bg-white rounded-2xl border border-slate-200 p-5 sm:p-8 shadow-xs space-y-6">
         {errorMessage && (
           <Alert type="error" title="সাইন ইন ব্যর্থ">
             {errorMessage}
@@ -156,7 +167,7 @@ function SignInForm() {
 
 export default function SignInPage() {
   return (
-    <div className="min-h-[calc(100vh-140px)] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-[calc(100vh-140px)] flex items-center justify-center py-8 sm:py-12 px-4 sm:px-6 lg:px-8">
       <Suspense fallback={<div className="w-full max-w-md h-96 bg-white/50 rounded-2xl animate-pulse" />}>
         <SignInForm />
       </Suspense>

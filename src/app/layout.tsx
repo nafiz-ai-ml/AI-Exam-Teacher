@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: 'AI খাতা মূল্যায়নকারী | শিক্ষকের ব্যক্তিগত সহায়ক টুল',
   description:
     '৬ষ্ঠ ও ৭ম শ্রেণির সৃজনশীল (CQ) পরীক্ষার ধারণাগত মূল্যায়ন। মুখস্থ উত্তরের মিল নয়, শিক্ষার্থীর নিজস্ব ভাষায় সঠিক উত্তর যাচাইয়ের প্ল্যাটফর্ম।',
+  icons: {
+    icon: '/icon.svg',
+  },
 };
 
 export default function RootLayout({

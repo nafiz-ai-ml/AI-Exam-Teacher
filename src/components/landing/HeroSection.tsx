@@ -162,11 +162,11 @@ export function HeroSection() {
                 <div className="lg:col-span-7 bg-white p-4 sm:p-5 rounded-xl border border-slate-200 space-y-4">
                   {/* Analysis Breakdown */}
                   <div>
-                    <div className="flex items-center justify-between mb-2">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 mb-2.5">
                       <span className="text-xs font-bold text-slate-800">
                         AI ধারণাগত মূল্যায়ন ও প্রশ্নের চাহিদা পূরণ
                       </span>
-                      <span className="text-xs font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                      <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 self-start sm:self-auto">
                         মিল: ১০০% (সঠিক জ্ঞান ও প্রয়োগ)
                       </span>
                     </div>
@@ -188,7 +188,7 @@ export function HeroSection() {
                   </div>
 
                   {/* Dual Score Representation: AI vs Teacher */}
-                  <div className="pt-3 border-t border-slate-200 flex items-center justify-between gap-4">
+                  <div className="pt-3 border-t border-slate-200 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                     <div className="bg-slate-50 p-2.5 rounded-lg border border-slate-200 flex-1">
                       <span className="text-[10px] font-bold text-slate-500 uppercase block">
                         AI প্রস্তাবিত নম্বর

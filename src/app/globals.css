@@ -17,6 +17,7 @@
 }
 
 html {
+  scroll-behavior: smooth;
   font-family: var(--font-bangla);
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

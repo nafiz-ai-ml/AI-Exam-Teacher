@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#047857" />
+      <stop offset="100%" stop-color="#0d9488" />
+    </linearGradient>
+  </defs>
+  <!-- Background squircle -->
+  <rect width="32" height="32" rx="8" fill="url(#grad)" />
+  
+  <!-- Graduation Cap Icon -->
+  <path d="M16 6L5 12L16 18L27 12L16 6Z" fill="white" />
+  <path d="M9 14.18V21.5C9 23.5 12.13 25 16 25C19.87 25 23 23.5 23 21.5V14.18L16 18L9 14.18Z" fill="white" fill-opacity="0.85" />
+  <path d="M26.5 13V19" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+  
+  <!-- AI Sparkle mini star -->
+  <path d="M24 6L24.8 7.8L26.6 8.6L24.8 9.4L24 11.2L23.2 9.4L21.4 8.6L23.2 7.8L24 6Z" fill="#fef08a" />
+</svg>

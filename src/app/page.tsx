@@ -5,6 +5,7 @@ import { HowItWorksSection } from '@/components/landing/HowItWorksSection';
 import { CoreCapabilitiesSection } from '@/components/landing/CoreCapabilitiesSection';
 import { EvaluationPreviewSection } from '@/components/landing/EvaluationPreviewSection';
 import { TeacherPhilosophySection } from '@/components/landing/TeacherPhilosophySection';
+import { FaqSection } from '@/components/landing/FaqSection';
 import { CallToActionSection } from '@/components/landing/CallToActionSection';
 
 export const metadata: Metadata = {
@@ -29,6 +30,7 @@ export default function LandingPage() {
       <CoreCapabilitiesSection />
       <EvaluationPreviewSection />
       <TeacherPhilosophySection />
+      <FaqSection />
       <CallToActionSection />
     </div>
   );

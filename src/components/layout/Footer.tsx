@@ -71,6 +71,11 @@ export default function Footer() {
                   শিক্ষক দর্শন
                 </a>
               </li>
+              <li>
+                <a href="#faq" className="hover:text-white transition-colors">
+                  সচরাচর জিজ্ঞাসা (FAQ)
+                </a>
+              </li>
             </ul>
           </div>
 

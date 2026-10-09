@@ -6,6 +6,8 @@ import { AppShell } from '@/components/layout/AppShell';
 import Link from 'next/link';
 import { AlertCircle, ArrowLeft } from 'lucide-react';
 
+export const dynamic = 'force-dynamic';
+
 interface PageProps {
   params: Promise<{ id: string }>;
 }
@@ -50,7 +52,7 @@ export default async function EvaluationDetailPage({ params }: PageProps) {
           <div className="pt-2">
             <Link
               href="/dashboard"
-              className="inline-flex items-center px-4 py-2.5 rounded-xl text-sm font-semibold bg-emerald-700 text-white hover:bg-emerald-800 transition-colors shadow-xs"
+              className="inline-flex items-center px-4 py-2.5 rounded-xl text-sm font-semibold bg-indigo-900 text-white hover:bg-indigo-950 transition-colors shadow-xs"
             >
               <ArrowLeft className="w-4 h-4 mr-1.5" />
               ড্যাশবোর্ডে ফিরে যান

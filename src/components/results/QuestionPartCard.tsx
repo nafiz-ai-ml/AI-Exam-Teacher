@@ -89,7 +89,7 @@ export function QuestionPartCard({ partData }: QuestionPartCardProps) {
             আত্মবিশ্বাস: {confidenceInfo.label.split(' ')[0]}
           </span>
 
-          <div className="px-3 py-1 rounded-lg bg-emerald-700 text-white font-bold text-sm shadow-xs">
+          <div className="px-3 py-1 rounded-lg bg-indigo-900 text-white font-bold text-sm shadow-xs">
             {toBengaliScore(partData.score, partData.max_score)}
           </div>
         </div>

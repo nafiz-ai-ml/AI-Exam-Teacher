@@ -60,8 +60,8 @@ export function FaqSection() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 text-xs font-semibold">
-            <HelpCircle className="w-3.5 h-3.5 text-emerald-700" />
+          <div className="inline-flex items-center space-x-1.5 px-3 py-1 rounded-full bg-indigo-50 text-indigo-900 border border-indigo-200 text-xs font-semibold">
+            <HelpCircle className="w-3.5 h-3.5 text-indigo-700" />
             <span>সচরাচর জিজ্ঞাসা ও উত্তর</span>
           </div>
 
@@ -84,7 +84,7 @@ export function FaqSection() {
                 key={idx}
                 className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                   isOpen
-                    ? 'border-emerald-300 bg-emerald-50/20 shadow-xs'
+                    ? 'border-indigo-300 bg-indigo-50/20 shadow-xs'
                     : 'border-slate-200 bg-white hover:border-slate-300 hover:bg-slate-50/50'
                 }`}
               >
@@ -99,7 +99,7 @@ export function FaqSection() {
                     <span
                       className={`w-6 h-6 rounded-lg text-xs font-bold flex items-center justify-center shrink-0 transition-colors ${
                         isOpen
-                          ? 'bg-emerald-700 text-white'
+                          ? 'bg-indigo-900 text-white'
                           : 'bg-slate-100 text-slate-600'
                       }`}
                     >
@@ -112,14 +112,14 @@ export function FaqSection() {
 
                   <div className="flex items-center space-x-2 shrink-0">
                     {faq.tag && (
-                      <span className="hidden md:inline-block text-[11px] font-semibold text-emerald-800 bg-emerald-100/70 px-2.5 py-0.5 rounded-full border border-emerald-200/60">
+                      <span className="hidden md:inline-block text-[11px] font-semibold text-indigo-900 bg-indigo-100/70 px-2.5 py-0.5 rounded-full border border-indigo-200/60">
                         {faq.tag}
                       </span>
                     )}
                     <span
                       className={`w-8 h-8 rounded-full flex items-center justify-center transition-transform duration-200 ${
                         isOpen
-                          ? 'rotate-180 bg-emerald-100 text-emerald-800'
+                          ? 'rotate-180 bg-indigo-100 text-indigo-900'
                           : 'bg-slate-100 text-slate-500'
                       }`}
                     >
@@ -137,7 +137,7 @@ export function FaqSection() {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <div className="pt-2 border-t border-emerald-200/40 text-xs sm:text-sm text-slate-600 leading-relaxed space-y-2">
+                    <div className="pt-2 border-t border-indigo-200/40 text-xs sm:text-sm text-slate-600 leading-relaxed space-y-2">
                       <p>{faq.answer}</p>
                     </div>
                   </div>
@@ -150,7 +150,7 @@ export function FaqSection() {
         {/* Bottom Helpful Note */}
         <div className="mt-10 p-4.5 rounded-2xl bg-slate-50 border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div className="flex items-center space-x-3">
-            <div className="w-9 h-9 rounded-xl bg-white border border-slate-200 text-emerald-700 flex items-center justify-center shrink-0 shadow-xs">
+            <div className="w-9 h-9 rounded-xl bg-white border border-slate-200 text-indigo-900 flex items-center justify-center shrink-0 shadow-xs">
               <Sparkles className="w-4.5 h-4.5" />
             </div>
             <div>
@@ -165,7 +165,7 @@ export function FaqSection() {
 
           <a
             href="#how-it-works"
-            className="shrink-0 text-xs font-bold text-emerald-700 hover:text-emerald-800 hover:underline inline-flex items-center"
+            className="shrink-0 text-xs font-bold text-indigo-900 hover:text-indigo-950 hover:underline inline-flex items-center"
           >
             কীভাবে কাজ করে আবার দেখুন &rarr;
           </a>

@@ -26,9 +26,9 @@ export function TeacherPhilosophySection() {
   return (
     <section id="philosophy" className="py-16 sm:py-24 bg-white border-b border-slate-200 scroll-mt-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950 text-white rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-xl">
+        <div className="bg-gradient-to-br from-indigo-950 via-slate-900 to-indigo-900 text-white rounded-3xl p-8 sm:p-12 lg:p-16 relative overflow-hidden shadow-xl">
           <div className="relative z-10 max-w-3xl space-y-6">
-            <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 text-xs font-semibold backdrop-blur-xs">
+            <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full bg-teal-500/20 text-teal-300 border border-teal-400/30 text-xs font-semibold backdrop-blur-xs">
               <UserCheck className="w-3.5 h-3.5" />
               <span>শিক্ষক-কেন্দ্রিক দর্শন</span>
             </div>
@@ -46,7 +46,7 @@ export function TeacherPhilosophySection() {
                 const Icon = pil.icon;
                 return (
                   <div key={idx} className="space-y-2">
-                    <div className="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                    <div className="w-8 h-8 rounded-lg bg-teal-500/20 text-teal-300 flex items-center justify-center">
                       <Icon className="w-4 h-4" />
                     </div>
                     <h3 className="font-bold text-white text-sm sm:text-base">
@@ -62,7 +62,7 @@ export function TeacherPhilosophySection() {
           </div>
 
           {/* Decorative glow */}
-          <div className="absolute -right-20 -top-20 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute -right-20 -top-20 w-80 h-80 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
         </div>
       </div>
     </section>

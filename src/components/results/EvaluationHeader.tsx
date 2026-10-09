@@ -37,11 +37,11 @@ export function EvaluationHeader({
   return (
     <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden">
       {/* Top Banner */}
-      <div className="bg-gradient-to-r from-slate-900 via-slate-800 to-emerald-950 p-6 text-white">
+      <div className="bg-indigo-950 p-6 text-white border-b border-indigo-900">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-2">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center text-xs font-bold px-2.5 py-1 rounded-md bg-emerald-600/90 text-white">
+              <span className="inline-flex items-center text-xs font-bold px-2.5 py-1 rounded-md bg-teal-600 text-white">
                 <GraduationCap className="w-3.5 h-3.5 mr-1" /> {evaluation.class_level} শ্রেণি
               </span>
               <span className="inline-flex items-center text-xs font-semibold px-2.5 py-1 rounded-md bg-white/20 text-white">

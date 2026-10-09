@@ -112,7 +112,7 @@ export default function SignUpPage() {
         <div className="flex items-center justify-between">
           <Link
             href="/"
-            className="inline-flex items-center text-xs font-semibold text-slate-600 hover:text-emerald-700 transition-colors"
+            className="inline-flex items-center text-xs font-semibold text-slate-600 hover:text-indigo-900 transition-colors"
           >
             <ArrowLeft className="w-4 h-4 mr-1.5" />
             <span>হোম পেজে ফিরে যান</span>
@@ -122,14 +122,14 @@ export default function SignUpPage() {
         {/* Brand & Heading */}
         <div className="text-center space-y-2">
           <Link href="/" className="inline-flex items-center space-x-2 group mb-1">
-            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-emerald-700 to-teal-500 flex items-center justify-center text-white shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform duration-200">
-              <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6" />
+            <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-indigo-900 flex items-center justify-center text-white shadow-xs group-hover:bg-indigo-950 transition-colors">
+              <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-teal-400" />
             </div>
             <div className="text-left">
               <span className="font-bold text-lg sm:text-xl text-slate-900 tracking-tight block">
                 শিক্ষক সহায়ক
               </span>
-              <span className="text-[11px] font-medium text-emerald-700 -mt-1 block">
+              <span className="text-[11px] font-medium text-teal-700 -mt-1 block">
                 সৃজনশীল খাতা মূল্যায়ন
               </span>
             </div>
@@ -138,7 +138,7 @@ export default function SignUpPage() {
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
             আপনার অ্যাকাউন্ট তৈরি করুন
           </h1>
-          <p className="text-xs sm:text-sm text-slate-700 max-w-sm mx-auto">
+          <p className="text-xs sm:text-sm text-slate-600 max-w-sm mx-auto">
             ব্যক্তিগতভাবে আপনার শিক্ষার্থীদের খাতা মূল্যায়নের জন্য অ্যাকাউন্ট তৈরি করুন।
           </p>
         </div>
@@ -164,7 +164,7 @@ export default function SignUpPage() {
                   ইমেইল ঠিকানা <span className="text-rose-500">*</span>
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-700">
+                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                     <Mail className="w-4 h-4" />
                   </div>
                   <input
@@ -173,7 +173,7 @@ export default function SignUpPage() {
                     placeholder="teacher@example.com"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 focus:bg-white transition-all"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-indigo-600 focus:bg-white transition-all"
                   />
                 </div>
               </div>
@@ -183,7 +183,7 @@ export default function SignUpPage() {
                   পাসওয়ার্ড <span className="text-rose-500">*</span>
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-700">
+                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                     <Lock className="w-4 h-4" />
                   </div>
                   <input
@@ -192,7 +192,7 @@ export default function SignUpPage() {
                     placeholder="কমপক্ষে ৮ অক্ষর"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 focus:bg-white transition-all"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-indigo-600 focus:bg-white transition-all"
                   />
                 </div>
               </div>
@@ -202,7 +202,7 @@ export default function SignUpPage() {
                   পাসওয়ার্ড নিশ্চিত করুন <span className="text-rose-500">*</span>
                 </label>
                 <div className="relative">
-                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-700">
+                  <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                     <Lock className="w-4 h-4" />
                   </div>
                   <input
@@ -211,23 +211,23 @@ export default function SignUpPage() {
                     placeholder="পুনরায় পাসওয়ার্ড লিখুন"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 focus:bg-white transition-all"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-indigo-600 focus:bg-white transition-all"
                   />
                 </div>
               </div>
 
               {/* Math CAPTCHA challenge - Mobile Optimized */}
-              <div className="p-3.5 rounded-xl bg-emerald-50/60 border border-emerald-200/80 space-y-2">
+              <div className="p-3.5 rounded-xl bg-indigo-50/50 border border-indigo-100 space-y-2">
                 <div className="flex items-center justify-between gap-2 text-xs font-semibold text-slate-800">
                   <span className="flex items-center space-x-1.5">
-                    <Calculator className="w-3.5 h-3.5 text-emerald-700" />
+                    <Calculator className="w-3.5 h-3.5 text-indigo-700" />
                     <span>গণিত যাচাই <span className="text-rose-500">*</span></span>
                   </span>
                   <button
                     type="button"
                     onClick={loadCaptcha}
                     disabled={isCaptchaLoading}
-                    className="text-[11px] text-emerald-800 hover:text-emerald-950 inline-flex items-center space-x-1 cursor-pointer font-bold shrink-0"
+                    className="text-[11px] text-indigo-800 hover:text-indigo-950 inline-flex items-center space-x-1 cursor-pointer font-bold shrink-0"
                     title="নতুন সমস্যা আনুন"
                   >
                     <RotateCw className={`w-3 h-3 ${isCaptchaLoading ? 'animate-spin' : ''}`} />
@@ -246,7 +246,7 @@ export default function SignUpPage() {
                     placeholder="উত্তর দিন"
                     value={captchaAnswer}
                     onChange={(e) => setCaptchaAnswer(e.target.value)}
-                    className="w-full min-w-0 bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-sm text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 transition-all font-semibold"
+                    className="w-full min-w-0 bg-white border border-slate-200 rounded-xl px-3.5 py-2 text-sm text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-indigo-600 transition-all font-semibold"
                   />
                 </div>
               </div>
@@ -254,7 +254,7 @@ export default function SignUpPage() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className="w-full inline-flex items-center justify-center px-6 py-3 rounded-xl font-bold text-white bg-emerald-700 hover:bg-emerald-800 active:bg-emerald-900 shadow-md shadow-emerald-700/20 hover:shadow-lg disabled:opacity-60 transition-all text-sm cursor-pointer mt-2"
+                className="w-full inline-flex items-center justify-center px-6 py-3 rounded-xl font-bold text-white bg-indigo-900 hover:bg-indigo-950 active:bg-slate-950 shadow-xs disabled:opacity-60 transition-all text-sm cursor-pointer mt-2"
               >
                 {isLoading ? (
                   <div className="flex items-center space-x-2">
@@ -271,11 +271,11 @@ export default function SignUpPage() {
             </form>
           )}
 
-          <div className="text-center pt-2 border-t border-slate-100 text-xs sm:text-sm text-slate-700">
+          <div className="text-center pt-2 border-t border-slate-100 text-xs sm:text-sm text-slate-600">
             ইতিমধ্যে অ্যাকাউন্ট আছে?{' '}
             <Link
               href="/sign-in"
-              className="font-bold text-emerald-700 hover:text-emerald-800 hover:underline"
+              className="font-bold text-indigo-900 hover:text-indigo-950 hover:underline"
             >
               সাইন ইন করুন
             </Link>

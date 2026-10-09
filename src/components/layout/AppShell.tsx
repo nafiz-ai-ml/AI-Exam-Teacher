@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { AppSidebar } from './AppSidebar';
 import { AppHeader } from './AppHeader';
 
@@ -24,7 +24,9 @@ export function AppShell({
   return (
     <div className="min-h-screen bg-slate-50 flex flex-col">
       {/* Sidebar for Mobile and Desktop */}
-      <AppSidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <Suspense fallback={<div className="hidden lg:block w-64 bg-slate-900 h-screen fixed inset-y-0" />}>
+        <AppSidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      </Suspense>
 
       {/* Main Container offset by sidebar width on lg screens */}
       <div className="lg:pl-64 flex flex-col min-h-screen transition-all duration-200">

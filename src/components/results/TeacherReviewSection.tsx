@@ -217,7 +217,7 @@ export function TeacherReviewSection({
           <button
             type="submit"
             disabled={isSaving}
-            className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-blue-700 hover:bg-blue-800 active:bg-blue-900 text-white font-bold text-sm shadow-md shadow-blue-700/20 hover:shadow-lg disabled:opacity-60 transition-all cursor-pointer"
+            className="inline-flex items-center space-x-2 px-6 py-3 rounded-xl bg-indigo-900 hover:bg-indigo-950 active:bg-slate-950 text-white font-bold text-sm shadow-xs disabled:opacity-60 transition-all cursor-pointer"
           >
             {isSaving ? (
               <>

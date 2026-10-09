@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import NewEvaluationForm from '@/components/evaluations/NewEvaluationForm';
 import { AppShell } from '@/components/layout/AppShell';
 
@@ -18,7 +18,9 @@ export default function NewEvaluationPage() {
       ]}
       showNewAction={false}
     >
-      <NewEvaluationForm />
+      <Suspense fallback={<div className="animate-pulse h-96 bg-white rounded-2xl border border-slate-200" />}>
+        <NewEvaluationForm />
+      </Suspense>
     </AppShell>
   );
 }

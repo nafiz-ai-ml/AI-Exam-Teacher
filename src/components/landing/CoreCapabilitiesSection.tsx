@@ -59,7 +59,7 @@ export function CoreCapabilitiesSection() {
     <section id="features" className="py-16 sm:py-24 bg-white border-b border-slate-200 scroll-mt-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
-          <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
+          <span className="text-xs font-bold uppercase tracking-wider text-indigo-900 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200">
             মূল সক্ষমতাসমূহ
           </span>
           <h2 className="mt-3 text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -76,9 +76,9 @@ export function CoreCapabilitiesSection() {
             return (
               <div
                 key={idx}
-                className="bg-slate-50/70 p-6 rounded-2xl border border-slate-200 hover:border-emerald-300 transition-all hover:bg-white hover:shadow-xs space-y-3"
+                className="bg-slate-50/70 p-6 rounded-2xl border border-slate-200 hover:border-indigo-300 transition-all hover:bg-white hover:shadow-xs space-y-3"
               >
-                <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 text-emerald-700 flex items-center justify-center shadow-xs">
+                <div className="w-10 h-10 rounded-xl bg-white border border-slate-200 text-indigo-900 flex items-center justify-center shadow-xs">
                   <Icon className="w-5 h-5" />
                 </div>
                 <h3 className="text-base font-bold text-slate-900">

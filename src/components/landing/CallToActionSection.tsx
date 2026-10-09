@@ -9,10 +9,10 @@ export function CallToActionSection() {
   const { user } = useAuth();
 
   return (
-    <section className="py-20 sm:py-28 bg-radial from-emerald-50/70 via-slate-50 to-slate-50">
+    <section className="py-20 sm:py-28 bg-slate-50/80 border-t border-slate-200">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-        <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-100 text-emerald-900 border border-emerald-200 text-xs sm:text-sm font-semibold shadow-xs">
-          <Sparkles className="w-4 h-4 text-emerald-700" />
+        <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-indigo-50 text-indigo-900 border border-indigo-200 text-xs sm:text-sm font-semibold shadow-xs">
+          <Sparkles className="w-4 h-4 text-indigo-700" />
           <span>আপনার পাঠদান ও মূল্যায়নের অভিজ্ঞতা আরও গতিশীল করুন</span>
         </div>
 
@@ -27,7 +27,7 @@ export function CallToActionSection() {
         <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
           <Link
             href={user ? '/dashboard' : '/sign-up'}
-            className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 rounded-xl font-bold text-sm sm:text-base bg-emerald-700 text-white hover:bg-emerald-800 active:bg-emerald-900 shadow-md shadow-emerald-700/20 hover:shadow-lg transition-all group"
+            className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-xl font-bold text-sm sm:text-base bg-indigo-900 text-white hover:bg-indigo-950 active:bg-slate-950 shadow-xs transition-all group"
           >
             <span>{user ? 'ড্যাশবোর্ডে যান' : 'মূল্যায়ন শুরু করুন'}</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -36,7 +36,7 @@ export function CallToActionSection() {
           {!user && (
             <Link
               href="/sign-in"
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 rounded-xl font-bold text-sm sm:text-base text-slate-700 bg-white hover:bg-slate-100 border border-slate-200 shadow-xs transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-xl font-bold text-sm sm:text-base text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 shadow-xs transition-all"
             >
               <LogIn className="w-4 h-4" />
               <span>লগইন করুন</span>

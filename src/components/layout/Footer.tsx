@@ -25,7 +25,7 @@ export default function Footer() {
           {/* Col 1: Brand & Description */}
           <div className="md:col-span-2 space-y-3">
             <div className="flex items-center space-x-2.5">
-              <div className="w-8 h-8 rounded-lg bg-emerald-600 flex items-center justify-center text-white">
+              <div className="w-8 h-8 rounded-lg bg-indigo-900 border border-indigo-700/50 flex items-center justify-center text-teal-400">
                 <GraduationCap className="w-4 h-4" />
               </div>
               <span className="font-bold text-white text-base">শিক্ষক সহায়ক</span>
@@ -33,7 +33,7 @@ export default function Footer() {
             <p className="text-slate-400 text-sm max-w-sm leading-relaxed">
               শিক্ষার্থীদের নিজস্ব ভাষায় লিখিত সৃজনশীল উত্তরের ধারণাগত মূল্যায়ন। মুখস্থ উত্তরের যান্ত্রিক মিল নয়, উত্তরের প্রকৃত গুণগত মান যাচাইয়ে শিক্ষকের ব্যক্তিগত সহায়ক।
             </p>
-            <div className="flex items-center space-x-4 pt-1 text-xs text-emerald-400">
+            <div className="flex items-center space-x-4 pt-1 text-xs text-teal-400">
               <span className="flex items-center">
                 <ShieldCheck className="w-3.5 h-3.5 mr-1" />
                 ধারণাগত মূল্যায়ন

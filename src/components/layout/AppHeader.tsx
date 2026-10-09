@@ -76,9 +76,9 @@ export function AppHeader({
         {showNewAction && (
           <Link
             href="/evaluations/new"
-            className="inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-emerald-700 text-white hover:bg-emerald-800 active:bg-emerald-900 shadow-sm transition-all shadow-emerald-700/20 hover:shadow-md cursor-pointer"
+            className="inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-indigo-900 text-white hover:bg-indigo-950 active:bg-slate-950 shadow-xs transition-all cursor-pointer"
           >
-            <PlusCircle className="w-4 h-4" />
+            <PlusCircle className="w-4 h-4 text-teal-300" />
             <span className="hidden xs:inline sm:inline">নতুন মূল্যায়ন</span>
           </Link>
         )}
@@ -87,7 +87,7 @@ export function AppHeader({
         <div className="flex items-center space-x-2 pl-2 border-l border-slate-200">
           <div
             title={user?.email || 'শিক্ষক'}
-            className="w-8 h-8 rounded-full bg-slate-900 text-white font-bold flex items-center justify-center text-xs shadow-xs select-none"
+            className="w-8 h-8 rounded-full bg-indigo-900 text-white font-bold flex items-center justify-center text-xs shadow-xs select-none"
           >
             {userInitial}
           </div>
@@ -102,5 +102,6 @@ export function AppHeader({
         </div>
       </div>
     </header>
+
   );
 }

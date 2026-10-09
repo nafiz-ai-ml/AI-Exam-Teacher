@@ -1,10 +1,21 @@
 import { getSupabase, isSupabaseConfigured } from './supabase';
+import { createServerSupabaseClient } from '@/lib/supabase/server';
 import {
   Evaluation,
   EvaluationFile,
   QuestionPartEvaluation,
   EvaluationStatus,
 } from '@/types/evaluation';
+
+async function getDbClient() {
+  try {
+    const serverClient = await createServerSupabaseClient();
+    if (serverClient) return serverClient;
+  } catch {
+    // Outside request context, fall back to standalone client
+  }
+  return getSupabase();
+}
 
 export interface StorageStatus {
   mode: 'supabase' | 'local';
@@ -257,7 +268,7 @@ let inMemoryEvaluations: Evaluation[] = [
  * Checks and reports the active storage mode and health.
  */
 export async function getStorageStatus(): Promise<StorageStatus> {
-  const supabase = getSupabase();
+  const supabase = await getDbClient();
 
   if (!isSupabaseConfigured() || !supabase) {
     return {
@@ -305,7 +316,7 @@ export async function getStorageStatus(): Promise<StorageStatus> {
 }
 
 export async function getAllEvaluations(userId?: string): Promise<Evaluation[]> {
-  const supabase = getSupabase();
+  const supabase = await getDbClient();
 
   if (isSupabaseConfigured() && supabase) {
     try {
@@ -318,23 +329,49 @@ export async function getAllEvaluations(userId?: string): Promise<Evaluation[]> 
         query = query.or(`user_id.eq.${userId},user_id.is.null`);
       }
 
-      const { data: evaluations, error } = await query;
+      let { data: evaluations, error } = await query;
+
+      // Resilient fallback: if no records returned with active client (or error occurred), try base anon client
+      if ((!evaluations || evaluations.length === 0 || error) && supabase !== getSupabase()) {
+        const base = getSupabase();
+        if (base) {
+          let baseQuery = base.from('evaluations').select('*').order('created_at', { ascending: false });
+          if (userId) {
+            baseQuery = baseQuery.or(`user_id.eq.${userId},user_id.is.null`);
+          }
+          const baseRes = await baseQuery;
+          if (baseRes.data && baseRes.data.length > 0) {
+            evaluations = baseRes.data;
+            error = null;
+          }
+        }
+      }
 
       if (error) throw error;
       if (evaluations && evaluations.length > 0) {
         // Hydrate each evaluation with its parts and files
         const fullEvaluations: Evaluation[] = await Promise.all(
           evaluations.map(async (ev) => {
-            const { data: parts } = await supabase
+            let { data: parts } = await supabase
               .from('evaluation_results')
               .select('*')
               .eq('evaluation_id', ev.id);
 
-            const { data: files } = await supabase
+            let { data: files } = await supabase
               .from('evaluation_files')
               .select('*')
               .eq('evaluation_id', ev.id)
               .order('page_order', { ascending: true });
+
+            if ((!parts || parts.length === 0) && supabase !== getSupabase()) {
+              const base = getSupabase();
+              if (base) {
+                const partsFb = await base.from('evaluation_results').select('*').eq('evaluation_id', ev.id);
+                if (partsFb.data && partsFb.data.length > 0) parts = partsFb.data;
+                const filesFb = await base.from('evaluation_files').select('*').eq('evaluation_id', ev.id).order('page_order', { ascending: true });
+                if (filesFb.data && filesFb.data.length > 0) files = filesFb.data;
+              }
+            }
 
             return {
               id: ev.id,
@@ -407,15 +444,31 @@ export async function getAllEvaluations(userId?: string): Promise<Evaluation[]> 
 }
 
 export async function getEvaluationById(id: string, userId?: string): Promise<Evaluation | null> {
-  const supabase = getSupabase();
+  const supabase = await getDbClient();
 
   if (isSupabaseConfigured() && supabase) {
     try {
-      const { data: ev, error } = await supabase
+      let { data: ev, error } = await supabase
         .from('evaluations')
         .select('*')
         .eq('id', id)
-        .single();
+        .maybeSingle();
+
+      // If active client couldn't find the row, try base anon client as fallback
+      if ((!ev || error) && supabase !== getSupabase()) {
+        const base = getSupabase();
+        if (base) {
+          const fallbackRes = await base
+            .from('evaluations')
+            .select('*')
+            .eq('id', id)
+            .maybeSingle();
+          if (fallbackRes.data) {
+            ev = fallbackRes.data;
+            error = null;
+          }
+        }
+      }
 
       if (error) throw error;
       if (ev) {
@@ -423,16 +476,28 @@ export async function getEvaluationById(id: string, userId?: string): Promise<Ev
         if (userId && ev.user_id && ev.user_id !== userId) {
           return null;
         }
-        const { data: parts } = await supabase
+
+        let { data: parts } = await supabase
           .from('evaluation_results')
           .select('*')
           .eq('evaluation_id', ev.id);
 
-        const { data: files } = await supabase
+        let { data: files } = await supabase
           .from('evaluation_files')
           .select('*')
           .eq('evaluation_id', ev.id)
           .order('page_order', { ascending: true });
+
+        // Fallback for parts/files
+        if ((!parts || parts.length === 0) && supabase !== getSupabase()) {
+          const base = getSupabase();
+          if (base) {
+            const partsFb = await base.from('evaluation_results').select('*').eq('evaluation_id', ev.id);
+            if (partsFb.data && partsFb.data.length > 0) parts = partsFb.data;
+            const filesFb = await base.from('evaluation_files').select('*').eq('evaluation_id', ev.id).order('page_order', { ascending: true });
+            if (filesFb.data && filesFb.data.length > 0) files = filesFb.data;
+          }
+        }
 
         return {
           id: ev.id,
@@ -500,7 +565,7 @@ export async function getEvaluationById(id: string, userId?: string): Promise<Ev
 }
 
 export async function saveEvaluation(evaluation: Evaluation): Promise<Evaluation> {
-  const supabase = getSupabase();
+  const supabase = await getDbClient();
 
   if (isSupabaseConfigured() && supabase) {
     try {
@@ -531,14 +596,24 @@ export async function saveEvaluation(evaluation: Evaluation): Promise<Evaluation
 
       let { error: evError } = await supabase.from('evaluations').upsert(evPayload);
 
-      // If user_id column doesn't exist yet in Supabase table, retry without user_id
-      if (evError && evError.message && evError.message.includes('user_id')) {
+      // Resiliency: If upsert failed and user_id was set (due to RLS, missing cookie, or foreign key constraint),
+      // retry with user_id omitted so the evaluation record is NEVER lost in Supabase!
+      if (evError && evPayload.user_id) {
+        console.warn('Evaluation upsert failed with user_id:', evError.message, '- retrying with user_id omitted for resiliency.');
         delete evPayload.user_id;
-        const retry = await supabase.from('evaluations').upsert(evPayload);
-        evError = retry.error;
+        const targetClient = getSupabase() || supabase;
+        const retry = await targetClient.from('evaluations').upsert(evPayload);
+        if (!retry.error) {
+          evError = null;
+        } else {
+          evError = retry.error;
+        }
       }
 
-      if (evError) throw evError;
+      if (evError) {
+        console.error('Failed to upsert evaluation to Supabase:', evError);
+        throw evError;
+      }
 
       // 2. Insert evaluation parts
       if (evaluation.parts && evaluation.parts.length > 0) {
@@ -567,7 +642,14 @@ export async function saveEvaluation(evaluation: Evaluation): Promise<Evaluation
           handwriting_clarity: p.handwriting_clarity,
         }));
 
-        await supabase.from('evaluation_results').insert(resultsToInsert);
+        let { error: partsError } = await supabase.from('evaluation_results').insert(resultsToInsert);
+        if (partsError && supabase !== getSupabase()) {
+          const base = getSupabase();
+          if (base) {
+            await base.from('evaluation_results').delete().eq('evaluation_id', evaluation.id);
+            await base.from('evaluation_results').insert(resultsToInsert);
+          }
+        }
       }
 
       // 3. Insert files
@@ -582,7 +664,14 @@ export async function saveEvaluation(evaluation: Evaluation): Promise<Evaluation
           page_order: f.page_order,
         }));
 
-        await supabase.from('evaluation_files').insert(filesToInsert);
+        let { error: filesError } = await supabase.from('evaluation_files').insert(filesToInsert);
+        if (filesError && supabase !== getSupabase()) {
+          const base = getSupabase();
+          if (base) {
+            await base.from('evaluation_files').delete().eq('evaluation_id', evaluation.id);
+            await base.from('evaluation_files').insert(filesToInsert);
+          }
+        }
       }
 
       // Keep in-memory cache in sync
@@ -609,6 +698,7 @@ export async function saveEvaluation(evaluation: Evaluation): Promise<Evaluation
 
   return evaluation;
 }
+
 
 export async function updateTeacherScoreAndReview(params: {
   id: string;

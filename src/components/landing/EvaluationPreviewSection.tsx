@@ -6,7 +6,7 @@ export function EvaluationPreviewSection() {
     <section id="preview" className="py-16 sm:py-24 bg-slate-50 border-b border-slate-200 scroll-mt-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
-          <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-100/70 px-3 py-1 rounded-full border border-emerald-200">
+          <span className="text-xs font-bold uppercase tracking-wider text-indigo-900 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200">
             বাস্তব উদাহরণ
           </span>
           <h2 className="mt-3 text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -18,11 +18,11 @@ export function EvaluationPreviewSection() {
         </div>
 
         <div className="mt-12 max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200 shadow-md overflow-hidden">
+          <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
             {/* Header info */}
-            <div className="bg-slate-900 text-white p-5 sm:p-6 flex flex-wrap items-center justify-between gap-4">
+            <div className="bg-indigo-950 text-white p-5 sm:p-6 flex flex-wrap items-center justify-between gap-4">
               <div>
-                <span className="text-xs font-semibold text-emerald-400 block mb-1">
+                <span className="text-xs font-semibold text-teal-400 block mb-1">
                   নমুনা সৃজনশীল প্রশ্ন • বাংলা ১ম পত্র (৭ম শ্রেণি)
                 </span>
                 <h3 className="text-base sm:text-lg font-bold">
@@ -31,7 +31,7 @@ export function EvaluationPreviewSection() {
               </div>
 
               <div className="flex items-center space-x-3">
-                <span className="text-xs font-semibold bg-emerald-900/60 border border-emerald-500/30 text-emerald-300 px-3 py-1 rounded-full">
+                <span className="text-xs font-semibold bg-teal-900/60 border border-teal-500/30 text-teal-300 px-3 py-1 rounded-full">
                   কনফিডেন্স: উচ্চ (High)
                 </span>
               </div>
@@ -42,7 +42,7 @@ export function EvaluationPreviewSection() {
               {/* Question Demand */}
               <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-1.5">
                 <div className="flex items-center space-x-2 text-xs font-bold text-slate-700 uppercase">
-                  <HelpCircle className="w-4 h-4 text-emerald-700" />
+                  <HelpCircle className="w-4 h-4 text-indigo-700" />
                   <span>প্রশ্নের মূল চাহিদা</span>
                 </div>
                 <p className="text-sm font-semibold text-slate-800">
@@ -52,39 +52,39 @@ export function EvaluationPreviewSection() {
 
               {/* Metrics Bar */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="bg-emerald-50/60 border border-emerald-200 p-4 rounded-xl">
-                  <span className="text-[11px] font-bold text-emerald-800 uppercase block">
+                <div className="bg-indigo-50/60 border border-indigo-200 p-4 rounded-xl">
+                  <span className="text-[11px] font-bold text-indigo-900 uppercase block">
                     AI প্রস্তাবিত নম্বর
                   </span>
-                  <div className="text-2xl font-black text-emerald-950 mt-1">
+                  <div className="text-2xl font-black text-indigo-950 mt-1">
                     ৩ / ৩
                   </div>
-                  <span className="text-[10px] text-emerald-700 block mt-0.5">
+                  <span className="text-[10px] text-indigo-700 block mt-0.5">
                     পূর্ণ নম্বর সুপারিশ
                   </span>
                 </div>
 
-                <div className="bg-blue-50/60 border border-blue-200 p-4 rounded-xl">
-                  <span className="text-[11px] font-bold text-blue-800 uppercase block">
+                <div className="bg-teal-50/60 border border-teal-200 p-4 rounded-xl">
+                  <span className="text-[11px] font-bold text-teal-900 uppercase block">
                     প্রশ্নের সাথে মিল
                   </span>
-                  <div className="text-2xl font-black text-blue-950 mt-1">
+                  <div className="text-2xl font-black text-teal-950 mt-1">
                     ১০০%
                   </div>
-                  <span className="text-[10px] text-blue-700 block mt-0.5">
+                  <span className="text-[10px] text-teal-700 block mt-0.5">
                     ধারণাগত দিক থেকে সম্পূর্ণ সংগতিপূর্ণ
                   </span>
                 </div>
 
-                <div className="bg-purple-50/60 border border-purple-200 p-4 rounded-xl">
-                  <span className="text-[11px] font-bold text-purple-800 uppercase block">
+                <div className="bg-slate-50 border border-slate-200 p-4 rounded-xl">
+                  <span className="text-[11px] font-bold text-slate-800 uppercase block">
                     শিক্ষকের চূড়ান্ত রিভিউ
                   </span>
-                  <div className="text-2xl font-black text-purple-950 mt-1 flex items-center">
+                  <div className="text-2xl font-black text-slate-950 mt-1 flex items-center">
                     ৩ / ৩
-                    <UserCheck className="w-5 h-5 ml-2 text-purple-600" />
+                    <UserCheck className="w-5 h-5 ml-2 text-teal-700" />
                   </div>
-                  <span className="text-[10px] text-purple-700 block mt-0.5">
+                  <span className="text-[10px] text-slate-600 block mt-0.5">
                     শিক্ষক দ্বারা অনুমোদিত
                   </span>
                 </div>

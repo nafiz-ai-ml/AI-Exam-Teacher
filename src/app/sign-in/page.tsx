@@ -64,14 +64,14 @@ function SignInForm() {
       {/* Brand & Heading */}
       <div className="text-center space-y-2">
         <Link href="/" className="inline-flex items-center space-x-2 group mb-1">
-          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-tr from-emerald-700 to-teal-500 flex items-center justify-center text-white shadow-md shadow-emerald-500/20 group-hover:scale-105 transition-transform duration-200">
-            <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6" />
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-indigo-900 flex items-center justify-center text-white shadow-xs group-hover:bg-indigo-950 transition-colors">
+            <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6 text-teal-400" />
           </div>
           <div className="text-left">
             <span className="font-bold text-lg sm:text-xl text-slate-900 tracking-tight block">
               শিক্ষক সহায়ক
             </span>
-            <span className="text-[11px] font-medium text-emerald-700 -mt-1 block">
+            <span className="text-[11px] font-medium text-teal-700 -mt-1 block">
               সৃজনশীল খাতা মূল্যায়ন
             </span>
           </div>
@@ -80,7 +80,7 @@ function SignInForm() {
         <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900">
           আবার স্বাগতম
         </h1>
-        <p className="text-xs sm:text-sm text-slate-700 max-w-sm mx-auto">
+        <p className="text-xs sm:text-sm text-slate-600 max-w-sm mx-auto">
           আপনার শিক্ষক অ্যাকাউন্টে সাইন ইন করে সংরক্ষিত খাতা ও মূল্যায়ন দেখুন।
         </p>
       </div>
@@ -99,7 +99,7 @@ function SignInForm() {
               ইমেইল ঠিকানা <span className="text-rose-500">*</span>
             </label>
             <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-700">
+              <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                 <Mail className="w-4 h-4" />
               </div>
               <input
@@ -108,7 +108,7 @@ function SignInForm() {
                 placeholder="teacher@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 focus:bg-white transition-all"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-indigo-600 focus:bg-white transition-all"
               />
             </div>
           </div>
@@ -118,7 +118,7 @@ function SignInForm() {
               পাসওয়ার্ড <span className="text-rose-500">*</span>
             </label>
             <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-700">
+              <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
                 <Lock className="w-4 h-4" />
               </div>
               <input
@@ -127,7 +127,7 @@ function SignInForm() {
                 placeholder="••••••••"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-emerald-500 focus:bg-white transition-all"
+                className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-900 focus:outline-hidden focus:ring-2 focus:ring-indigo-600 focus:bg-white transition-all"
               />
             </div>
           </div>
@@ -135,8 +135,9 @@ function SignInForm() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full inline-flex items-center justify-center px-6 py-3 rounded-xl font-bold text-white bg-emerald-700 hover:bg-emerald-800 active:bg-emerald-900 shadow-md shadow-emerald-700/20 hover:shadow-lg disabled:opacity-60 transition-all text-sm cursor-pointer mt-2"
+            className="w-full inline-flex items-center justify-center px-6 py-3 rounded-xl font-bold text-white bg-indigo-900 hover:bg-indigo-950 active:bg-slate-950 shadow-xs disabled:opacity-60 transition-all text-sm cursor-pointer mt-2"
           >
+
             {isLoading ? (
               <div className="flex items-center space-x-2">
                 <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />

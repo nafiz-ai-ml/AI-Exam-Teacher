@@ -19,19 +19,19 @@ export function HeroSection() {
   const { user } = useAuth();
 
   return (
-    <section className="relative pt-12 pb-20 sm:pt-16 sm:pb-28 overflow-hidden bg-radial from-emerald-50/50 via-slate-50 to-slate-50">
+    <section className="relative pt-12 pb-20 sm:pt-16 sm:pb-28 overflow-hidden bg-gradient-to-b from-indigo-50/40 via-slate-50 to-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Top Announcement Badge */}
         <div className="text-center">
-          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 text-emerald-900 border border-emerald-200/80 text-xs sm:text-sm font-medium mb-6 shadow-xs animate-fade-in">
-            <Sparkles className="w-4 h-4 text-emerald-700 shrink-0" />
+          <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-indigo-50 text-indigo-900 border border-indigo-200/80 text-xs sm:text-sm font-medium mb-6 shadow-xs animate-fade-in">
+            <Sparkles className="w-4 h-4 text-teal-600 shrink-0" />
             <span>শিক্ষকের ব্যক্তিগত AI মূল্যায়ন সহায়ক</span>
           </div>
 
           {/* Main Headline */}
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight max-w-4xl mx-auto leading-[1.2] sm:leading-[1.18]">
             খাতার উত্তর যাচাই করুন আরও দ্রুত,{' '}
-            <span className="text-emerald-700 underline decoration-emerald-300 underline-offset-8">
+            <span className="text-indigo-950 underline decoration-teal-400 underline-offset-8">
               আরও নির্ভরযোগ্যভাবে
             </span>
           </h1>
@@ -43,19 +43,19 @@ export function HeroSection() {
           </p>
 
           {/* Philosophy reminder */}
-          <div className="mt-4 inline-flex items-center space-x-2 text-xs sm:text-sm text-emerald-800 font-semibold bg-emerald-50 px-4 py-1.5 rounded-lg border border-emerald-200/60">
-            <ShieldCheck className="w-4 h-4 text-emerald-700 shrink-0" />
-            <span>AI মূল্যায়ন করে, চূড়ান্ত সিদ্ধান্ত শিক্ষক নেন।</span>
+          <div className="mt-4 inline-flex items-center space-x-2 text-xs sm:text-sm text-teal-900 font-semibold bg-teal-50 px-4 py-1.5 rounded-lg border border-teal-200">
+            <ShieldCheck className="w-4 h-4 text-teal-700 shrink-0" />
+            <span>AI প্রস্তাব করে, চূড়ান্ত রায় শিক্ষক নির্ধারণ করেন।</span>
           </div>
 
           {/* CTA Buttons */}
           <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <Link
               href={user ? '/dashboard' : '/sign-up'}
-              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 py-3.5 rounded-xl font-bold text-sm sm:text-base bg-emerald-700 text-white hover:bg-emerald-800 active:bg-emerald-900 shadow-md shadow-emerald-700/20 hover:shadow-lg transition-all group"
+              className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-6 py-3.5 rounded-xl font-bold text-sm sm:text-base bg-indigo-900 text-white hover:bg-indigo-950 active:bg-slate-950 shadow-xs transition-all group"
             >
               <span>{user ? 'ড্যাশবোর্ডে প্রবেশ করুন' : 'মূল্যায়ন শুরু করুন'}</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-4 h-4 text-teal-300 group-hover:translate-x-1 transition-transform" />
             </Link>
 
             <a
@@ -67,6 +67,7 @@ export function HeroSection() {
             </a>
           </div>
         </div>
+
 
         {/* Visual Product Showcase (Section 9) */}
         <div className="mt-14 sm:mt-18 max-w-5xl mx-auto">

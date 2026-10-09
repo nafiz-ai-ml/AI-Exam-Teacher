@@ -37,7 +37,7 @@ export function HowItWorksSection() {
     <section id="how-it-works" className="py-16 sm:py-24 bg-slate-50 scroll-mt-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto">
-          <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-100/70 px-3 py-1 rounded-full border border-emerald-200">
+          <span className="text-xs font-bold uppercase tracking-wider text-indigo-900 bg-indigo-50 px-3 py-1 rounded-full border border-indigo-200">
             সহজ ৪ ধাপের কার্যপদ্ধতি
           </span>
           <h2 className="mt-3 text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
@@ -54,19 +54,19 @@ export function HowItWorksSection() {
             return (
               <div
                 key={idx}
-                className="relative bg-white rounded-2xl p-6 border border-slate-200 shadow-xs flex flex-col justify-between hover:border-emerald-300 transition-all hover:shadow-md group"
+                className="relative bg-white rounded-2xl p-6 border border-slate-200 shadow-xs flex flex-col justify-between hover:border-indigo-300 transition-all hover:shadow-md group"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <span className="w-8 h-8 rounded-full bg-emerald-700 text-white font-bold flex items-center justify-center text-sm">
+                    <span className="w-8 h-8 rounded-full bg-indigo-900 text-white font-bold flex items-center justify-center text-sm shadow-xs">
                       {st.step}
                     </span>
-                    <span className="text-[10px] font-semibold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100">
+                    <span className="text-[10px] font-semibold text-indigo-900 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-100">
                       {st.badge}
                     </span>
                   </div>
 
-                  <div className="w-12 h-12 rounded-xl bg-slate-50 group-hover:bg-emerald-50 text-slate-700 group-hover:text-emerald-700 flex items-center justify-center mb-4 transition-colors">
+                  <div className="w-12 h-12 rounded-xl bg-slate-50 group-hover:bg-indigo-50 text-slate-700 group-hover:text-indigo-900 flex items-center justify-center mb-4 transition-colors">
                     <Icon className="w-6 h-6" />
                   </div>
 
@@ -78,7 +78,7 @@ export function HowItWorksSection() {
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center text-[11px] font-semibold text-slate-400 group-hover:text-emerald-700 transition-colors">
+                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center text-[11px] font-semibold text-slate-400 group-hover:text-indigo-900 transition-colors">
                   <span>ধাপ {st.step} নির্দেশিকা</span>
                   <ArrowRight className="w-3.5 h-3.5 ml-1 group-hover:translate-x-1 transition-transform" />
                 </div>

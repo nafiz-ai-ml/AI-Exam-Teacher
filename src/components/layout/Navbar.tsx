@@ -79,15 +79,15 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-16">
             {/* Left: Brand Logo & Name */}
             <Link href="/" className="flex items-center space-x-2.5 group shrink-0">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-emerald-700 to-teal-600 flex items-center justify-center text-white shadow-md shadow-emerald-600/20 group-hover:scale-105 transition-transform duration-200">
-                <GraduationCap className="w-5 h-5" />
+              <div className="w-9 h-9 rounded-xl bg-indigo-900 flex items-center justify-center text-white shadow-xs group-hover:bg-indigo-950 transition-colors">
+                <GraduationCap className="w-5 h-5 text-teal-400" />
               </div>
               <div className="flex items-center space-x-1.5">
                 <span className="font-bold text-base sm:text-lg text-slate-900 tracking-tight">
                   শিক্ষক সহায়ক
                 </span>
-                <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800 border border-emerald-200">
-                  <Sparkles className="w-2.5 h-2.5 mr-0.5 inline" /> AI
+                <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-indigo-50 text-indigo-800 border border-indigo-200">
+                  <Sparkles className="w-2.5 h-2.5 mr-0.5 inline text-teal-600" /> AI
                 </span>
               </div>
             </Link>
@@ -98,7 +98,7 @@ export default function Navbar() {
                 <a
                   key={item.href}
                   href={item.href}
-                  className="hover:text-emerald-700 transition-colors cursor-pointer"
+                  className="hover:text-indigo-900 transition-colors cursor-pointer"
                 >
                   {item.label}
                 </a>
@@ -113,14 +113,14 @@ export default function Navbar() {
                 <div className="flex items-center space-x-3">
                   <Link
                     href="/dashboard"
-                    className="inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-emerald-700 text-white hover:bg-emerald-800 transition-all shadow-sm shadow-emerald-700/20"
+                    className="inline-flex items-center space-x-1.5 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-indigo-900 text-white hover:bg-indigo-950 transition-all shadow-xs"
                   >
-                    <LayoutDashboard className="w-4 h-4" />
+                    <LayoutDashboard className="w-4 h-4 text-teal-300" />
                     <span>ড্যাশবোর্ড</span>
                   </Link>
                   <div
                     title={user.email || ''}
-                    className="w-8 h-8 rounded-full bg-slate-900 text-white font-bold flex items-center justify-center text-xs select-none shadow-xs"
+                    className="w-8 h-8 rounded-full bg-indigo-900 text-white font-bold flex items-center justify-center text-xs select-none shadow-xs"
                   >
                     {userInitial}
                   </div>
@@ -142,10 +142,10 @@ export default function Navbar() {
                   </Link>
                   <Link
                     href="/sign-up"
-                    className="inline-flex items-center space-x-1 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-emerald-700 text-white hover:bg-emerald-800 transition-all shadow-sm shadow-emerald-700/20 hover:shadow-md"
+                    className="inline-flex items-center space-x-1 px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-indigo-900 text-white hover:bg-indigo-950 transition-all shadow-xs"
                   >
                     <span>শুরু করুন</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-3.5 h-3.5 text-teal-300" />
                   </Link>
                 </div>
               )}
@@ -187,8 +187,8 @@ export default function Navbar() {
               onClick={() => setIsMobileMenuOpen(false)}
               className="flex items-center space-x-2"
             >
-              <div className="w-8 h-8 rounded-lg bg-emerald-700 flex items-center justify-center text-white shadow-xs">
-                <GraduationCap className="w-4.5 h-4.5" />
+              <div className="w-8 h-8 rounded-lg bg-indigo-900 flex items-center justify-center text-white shadow-xs">
+                <GraduationCap className="w-4.5 h-4.5 text-teal-300" />
               </div>
               <span className="font-bold text-slate-900 text-sm">শিক্ষক সহায়ক</span>
             </Link>
@@ -215,9 +215,9 @@ export default function Navbar() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="flex items-center space-x-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:text-emerald-800 hover:bg-emerald-50/70 transition-colors"
+                  className="flex items-center space-x-3 px-3 py-2.5 rounded-xl text-sm font-semibold text-slate-700 hover:text-indigo-900 hover:bg-indigo-50/70 transition-colors"
                 >
-                  <Icon className="w-4 h-4 text-emerald-700" />
+                  <Icon className="w-4 h-4 text-indigo-900" />
                   <span>{item.label}</span>
                 </a>
               );
@@ -226,6 +226,7 @@ export default function Navbar() {
         </div>
 
         {/* Drawer Bottom Auth Section */}
+
         <div className="p-4 border-t border-slate-200 bg-slate-50/80 space-y-3">
           {isLoading ? (
             <div className="h-10 bg-slate-200 rounded-xl animate-pulse" />

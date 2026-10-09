@@ -10,6 +10,7 @@ import {
   saveEvaluation,
 } from '@/lib/db/store';
 import { getSupabase, isSupabaseConfigured } from '@/lib/db/supabase';
+import { createServerSupabaseClient, getAuthenticatedUser } from '@/lib/supabase/server';
 import { evaluateCreativeAnswer } from '@/lib/ai/evaluator';
 import {
   CreateEvaluationInput,
@@ -22,7 +23,8 @@ async function uploadToStorageIfAvailable(
   fileName: string,
   folder: string
 ): Promise<string> {
-  const supabase = getSupabase();
+  const serverSb = await createServerSupabaseClient();
+  const supabase = serverSb || getSupabase();
   if (!supabase || !isSupabaseConfigured() || !fileUrl.startsWith('data:image/')) {
     return fileUrl;
   }
@@ -55,8 +57,6 @@ async function uploadToStorageIfAvailable(
     return fileUrl;
   }
 }
-
-import { getAuthenticatedUser } from '@/lib/supabase/server';
 
 export async function GET() {
   try {

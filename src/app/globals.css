@@ -3,12 +3,22 @@
 :root {
   --background: #f8fafc;
   --foreground: #0f172a;
+  --primary: #1e3a8a;
+  --primary-hover: #172554;
+  --accent: #0f766e;
+  --surface: #ffffff;
+  --border-subtle: #e2e8f0;
   --font-bangla: 'Hind Siliguri', 'Amar Bangla', 'SolaimanLipi', 'Kalpurush', 'Noto Sans Bengali', system-ui, -apple-system, sans-serif;
 }
 
 @theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-accent: var(--accent);
+  --color-surface: var(--surface);
+  --color-border-subtle: var(--border-subtle);
   --font-sans: var(--font-bangla);
 }
 
@@ -28,10 +38,11 @@ body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: var(--font-bangla);
-  line-height: 1.65;
+  line-height: 1.68;
   letter-spacing: 0.01em;
   min-height: 100vh;
 }
+
 
 /* Bengali Typography enhancements */
 h1, h2, h3, h4, h5, h6 {

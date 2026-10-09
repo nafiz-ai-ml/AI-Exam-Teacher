@@ -75,8 +75,8 @@ export function ImageUploader({
         continue;
       }
 
-      // Read as base64 Data URL for universal client/server portability
-      const base64 = await readFileAsBase64(file);
+      // Read & auto-compress high-res camera photos to prevent Vercel 4.5MB payload limit
+      const base64 = await compressImageIfNeeded(file);
       newUploadedFiles.push({
         id: `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
         file_name: file.name,
@@ -301,11 +301,65 @@ export function ImageUploader({
   );
 }
 
-function readFileAsBase64(file: File): Promise<string> {
+/**
+ * Automatically resizes & compresses high-resolution camera images on the client side.
+ * Converts 5-12MB mobile phone photos to ~250-400KB crisp JPEGs (max 1600px).
+ * Prevents Vercel 4.5MB request body size overflow (HTTP 413) and accelerates OpenAI Vision inference.
+ */
+function compressImageIfNeeded(
+  file: File,
+  maxDimension = 1600,
+  quality = 0.82
+): Promise<string> {
   return new Promise((resolve, reject) => {
+    // If not an image, read directly as base64
+    if (!file.type.startsWith('image/')) {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+      return;
+    }
+
     const reader = new FileReader();
-    reader.onload = () => resolve(reader.result as string);
-    reader.onerror = (error) => reject(error);
+    reader.onerror = reject;
+    reader.onload = (e) => {
+      const rawDataUrl = e.target?.result as string;
+      const img = new Image();
+      img.onerror = () => resolve(rawDataUrl);
+      img.onload = () => {
+        try {
+          let { width, height } = img;
+
+          // Downscale if larger than maxDimension
+          if (width > maxDimension || height > maxDimension) {
+            if (width > height) {
+              height = Math.round((height * maxDimension) / width);
+              width = maxDimension;
+            } else {
+              width = Math.round((width * maxDimension) / height);
+              height = maxDimension;
+            }
+          }
+
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          if (!ctx) {
+            resolve(rawDataUrl);
+            return;
+          }
+
+          ctx.drawImage(img, 0, 0, width, height);
+          const compressedDataUrl = canvas.toDataURL('image/jpeg', quality);
+          resolve(compressedDataUrl);
+        } catch {
+          resolve(rawDataUrl);
+        }
+      };
+      img.src = rawDataUrl;
+    };
     reader.readAsDataURL(file);
   });
 }

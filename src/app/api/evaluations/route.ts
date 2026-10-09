@@ -1,5 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import crypto from 'crypto';
+
+// Vercel serverless configuration: allow up to 60s execution for AI Vision analysis
+export const maxDuration = 60;
+export const dynamic = 'force-dynamic';
+
 import {
   getAllEvaluations,
   saveEvaluation,

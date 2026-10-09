@@ -6,7 +6,7 @@
   --font-bangla: 'Hind Siliguri', 'Amar Bangla', 'SolaimanLipi', 'Kalpurush', 'Noto Sans Bengali', system-ui, -apple-system, sans-serif;
 }
 
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-bangla);
@@ -94,7 +94,7 @@ p, li, blockquote {
 
 /* Reduced motion support (Section 55 & 26) */
 @media (prefers-reduced-motion: reduce) {
-  *, ::before, ::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

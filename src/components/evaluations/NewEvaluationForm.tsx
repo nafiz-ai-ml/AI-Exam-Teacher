@@ -138,8 +138,22 @@ export default function NewEvaluationForm() {
       stepTimers.forEach(clearTimeout);
 
       if (!res.ok) {
-        const errorData = await res.json().catch(() => ({}));
-        throw new Error(errorData.error || 'মূল্যায়ন প্রক্রিয়া সম্পন্ন করতে সমস্যা হয়েছে');
+        let errorMsg = 'মূল্যায়ন প্রক্রিয়া সম্পন্ন করতে সমস্যা হয়েছে।';
+        try {
+          const errorData = await res.json();
+          if (errorData?.error) {
+            errorMsg = errorData.error;
+          }
+        } catch {
+          if (res.status === 413) {
+            errorMsg = 'ছবির ফাইল সাইজ অনেক বড় (৪.৫ MB-এর বেশি)। অনুগ্রহ করে স্পষ্ট কিন্তু ছোট ছবি দিন।';
+          } else if (res.status === 504) {
+            errorMsg = 'AI মূল্যায়নে নির্ধারিত সময়সীমা (Timeout) অতিক্রম করেছে। অনুগ্রহ করে আবার চেষ্টা করুন।';
+          } else if (res.status === 500) {
+            errorMsg = 'সার্ভারে অভ্যন্তরীণ ত্রুটি হয়েছে। Vercel প্রজেক্টে Environment Variables (OPENAI_API_KEY ইত্যাদি) কনফিগার করা আছে কি না যাচাই করুন।';
+          }
+        }
+        throw new Error(errorMsg);
       }
 
       const data = await res.json();
